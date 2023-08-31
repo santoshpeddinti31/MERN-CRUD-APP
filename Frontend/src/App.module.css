@@ -1,0 +1,43 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  border: 1px solid black;
+  gap: 10rem;
+}
+.container header {
+  background-color: black;
+  color: #fff;
+  display: flex;
+  width: 10rem;
+  height: 5rem;
+  margin: 1rem;
+  margin-left: -25rem;
+  border-radius: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+}
+.container ul {
+  display: flex;
+  list-style-type: none;
+  gap: 6rem;
+}
+.container ul li {
+  display: flex;
+  width: 5rem;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+}
+.container ul li:hover {
+  background-color: rgb(215, 164, 220);
+  backdrop-filter: blur(4rem);
+  border-radius: 10px;
+  transition: ease-in 500ms;
+}
+#links {
+  color: #fff;
+  text-decoration: none;
+}
