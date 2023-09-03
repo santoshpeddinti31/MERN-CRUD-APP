@@ -1,5 +1,7 @@
 import authStore from "../store/authStore";
 import { useNavigate } from "react-router-dom";
+
+import Styles from "./SignupForm.module.css";
 const SignupForm = () => {
   const store = authStore();
   const navigate = useNavigate();
@@ -11,7 +13,7 @@ const SignupForm = () => {
   };
 
   return (
-    <div>
+    <div className={Styles.signuppage}>
       <form onSubmit={handleSignup}>
         <input
           onChange={store.updateSignupForm}
@@ -19,6 +21,7 @@ const SignupForm = () => {
           type="email"
           name="email"
           autoComplete="email"
+          placeholder="Enter your email"
         />
         <input
           onChange={store.updateSignupForm}
@@ -26,6 +29,7 @@ const SignupForm = () => {
           type="password"
           name="password"
           autoComplete="password"
+          placeholder="enter your password"
         />
         <button type="submit">Signup</button>
       </form>

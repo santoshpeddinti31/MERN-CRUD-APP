@@ -2,8 +2,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   place-items: center;
-  border: 1px solid black;
-  gap: 10rem;
 }
 .container header {
   background-color: black;
@@ -12,7 +10,7 @@
   width: 10rem;
   height: 5rem;
   margin: 1rem;
-  margin-left: -25rem;
+  margin-left: -33rem;
   border-radius: 0.5rem;
   align-items: center;
   justify-content: center;
@@ -22,7 +20,7 @@
 .container ul {
   display: flex;
   list-style-type: none;
-  gap: 6rem;
+  gap: 3rem;
 }
 .container ul li {
   display: flex;
@@ -35,7 +33,6 @@
   background-color: rgb(215, 164, 220);
   backdrop-filter: blur(4rem);
   border-radius: 10px;
-  transition: ease-in 500ms;
 }
 #links {
   color: #fff;

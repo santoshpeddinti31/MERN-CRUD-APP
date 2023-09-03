@@ -1,0 +1,17 @@
+.signup {
+  display: flex;
+  flex-direction: column;
+  height: 25rem;
+  margin-top: 2rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  background: transparent;
+  box-shadow: 0 4px 6px 0 rgba(164, 67, 184, 0.3),
+    0 8px 20px 0 rgba(183, 57, 170, 0.3);
+}
+
+.signup h1 {
+  margin-top: 3rem;
+  text-align: center;
+  color: #a50cc4;
+}

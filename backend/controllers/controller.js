@@ -32,13 +32,12 @@ const fetchTodo = async (req, res) => {
 const createTodo = async (req, res) => {
   try {
     //Get the sent in data off request body
-    const { productname, sellername, price } = req.body;
+    const { productname, sellername } = req.body;
 
     //create a note with it
     const todo = await Model.create({
       productname,
       sellername,
-      price,
       user: req.user._id,
     });
 
@@ -55,15 +54,14 @@ const updateTodo = async (req, res) => {
   const todoId = req.params.id;
 
   //Get the data off the req body
-  const { productname, sellername, price } = req.body;
+  const { productname, sellername } = req.body;
 
   //Find and update the record
   await Model.findOneAndUpdate(
-    { _id: todoId, user: req.user_id },
+    { _id: todoId, user: req.user._id },
     {
       productname,
       sellername,
-      price,
     }
   );
 

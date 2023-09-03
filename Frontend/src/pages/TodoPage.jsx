@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 // import Classes from "./App.module.css";
 import axios from "axios";
 // import axios from "axios";
 
 import Styles from "../pages/TodoPage.module.css";
+
 const TodoPage = () => {
   //state
   const [total, setTotal] = useState(null);
@@ -11,14 +12,12 @@ const TodoPage = () => {
   const [createForm, setCreateForm] = useState({
     productname: "",
     sellername: "",
-    price: "",
   });
 
   const [updateForm, setUpdateForm] = useState({
     _id: null,
     productname: "",
     sellername: "",
-    price: "",
   });
 
   //use effect
@@ -57,7 +56,6 @@ const TodoPage = () => {
     setCreateForm({
       productname: "",
       sellername: "",
-      price: "",
     });
   };
 
@@ -86,7 +84,6 @@ const TodoPage = () => {
     setUpdateForm({
       productname: todo.productname,
       sellername: todo.sellername,
-      price: todo.price,
       _id: todo._id,
     });
   };
@@ -94,13 +91,12 @@ const TodoPage = () => {
   const updateTodo = async (e) => {
     e.preventDefault();
 
-    const { productname, sellername, price } = updateForm;
+    const { productname, sellername } = updateForm;
 
     //send the update request
     const res = await axios.put(`/todos/${updateForm._id}`, {
       productname,
       sellername,
-      price,
     });
 
     //update state
@@ -118,79 +114,75 @@ const TodoPage = () => {
       _id: null,
       productname: "",
       sellername: "",
-      price: "",
     });
   };
 
   return (
-    <div className={Styles.container}>
-      <div>
-        <h2>Todos:</h2>
+    <Fragment>
+      <div className={Styles.container}>
+        {updateForm._id && (
+          <div className={Styles.updatetodo}>
+            <h2>Update Todo</h2>
+            <form onSubmit={updateTodo}>
+              <input
+                onChange={handleUpdateFieldChange}
+                value={updateForm.productname}
+                name="productname"
+              />
+              <input
+                onChange={handleUpdateFieldChange}
+                value={updateForm.sellername}
+                name="sellername"
+              />
+              <button type="submit">Update Todo</button>
+            </form>
+          </div>
+        )}
+
+        {!updateForm._id && (
+          <div className={Styles.createtodo}>
+            <h2>Create Todo</h2>
+            <form onSubmit={createTodo}>
+              <input
+                onChange={updateCreateFormField}
+                value={createForm.productname}
+                name="productname"
+                placeholder="Enter your Name"
+              />
+              <input
+                onChange={updateCreateFormField}
+                value={createForm.sellername}
+                name="sellername"
+                placeholder="Enter your Task"
+              />
+              <button type="submit">Create Todo</button>
+            </form>
+          </div>
+        )}
+      </div>
+      <div className={Styles.todos}>
+        <h2>TODO 'S</h2>
         {total &&
           total.map((todo) => {
             return (
-              <div key={todo._id}>
+              <div className={Styles.tasks} key={todo._id}>
                 <h3>
-                  {todo.productname}&nbsp;&nbsp;{todo.sellername}&nbsp;&nbsp;
-                  {todo.price}
+                  {todo.productname}
+                  &nbsp;&nbsp;
+                  <span id={Styles.seller}>{todo.sellername}</span>
+                  &nbsp;&nbsp;
                 </h3>
-                <button onClick={() => deleteTodo(todo._id)}>
+                <button id={Styles.delete} onClick={() => deleteTodo(todo._id)}>
                   Delete Todo
                 </button>
-                <button onClick={() => toggleUpdate(todo)}>Update Todo</button>
+                <button id={Styles.update} onClick={() => toggleUpdate(todo)}>
+                  Update Todo
+                </button>
               </div>
             );
           })}
       </div>
-
-      {updateForm._id && (
-        <div>
-          <h2>Update Todo</h2>
-          <form onSubmit={updateTodo}>
-            <input
-              onChange={handleUpdateFieldChange}
-              value={updateForm.productname}
-              name="productname"
-            />
-            <input
-              onChange={handleUpdateFieldChange}
-              value={updateForm.sellername}
-              name="sellername"
-            />
-            <input
-              onChange={handleUpdateFieldChange}
-              value={updateForm.price}
-              name="price"
-            />
-            <button type="submit">Update Todo</button>
-          </form>
-        </div>
-      )}
-
-      {!updateForm._id && (
-        <div>
-          <h2>Create Todo</h2>
-          <form onSubmit={createTodo}>
-            <input
-              onChange={updateCreateFormField}
-              value={createForm.productname}
-              name="productname"
-            />
-            <input
-              onChange={updateCreateFormField}
-              value={createForm.sellername}
-              name="sellername"
-            />
-            <input
-              onChange={updateCreateFormField}
-              value={createForm.price}
-              name="price"
-            />
-            <button type="submit">Create Todo</button>
-          </form>
-        </div>
-      )}
-    </div>
+    </Fragment>
   );
 };
 

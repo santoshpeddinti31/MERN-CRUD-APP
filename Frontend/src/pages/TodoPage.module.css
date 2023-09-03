@@ -1,5 +1,140 @@
 .container {
-  border: 1px solid black;
-  background-color: aqua;
   width: 20rem;
+  display: flex;
+  flex-direction: column;
+  height: 20rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1), 0 8px 20px 0 rgba(0, 0, 0, 0.2);
+}
+.createtodo,
+.updatetodo {
+  display: flex;
+  flex-direction: column;
+}
+.createtodo h2 {
+  color: rgb(160, 40, 150);
+}
+
+.updatetodo h2 {
+  color: rgb(36, 114, 36);
+}
+.createtodo input {
+  display: flex;
+  width: 18rem;
+  border: 2px solid rgb(197, 77, 163);
+  outline: none;
+  border-radius: 4px;
+  padding-inline-start: 4px;
+  line-height: 1.4rem;
+  margin-top: 1rem;
+  color: #fff;
+  background-color: transparent;
+}
+.updatetodo input {
+  display: flex;
+  width: 18rem;
+  border: 2px solid green;
+  outline: none;
+  border-radius: 4px;
+  padding-inline-start: 4px;
+  line-height: 1.4rem;
+  margin-top: 1rem;
+  color: #fff;
+  background-color: transparent;
+}
+.createtodo button {
+  margin-top: 2rem;
+  width: 8rem;
+  line-height: 1.4rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: blueviolet;
+  color: #fff;
+  border-radius: 5px;
+}
+.updatetodo button {
+  margin-top: 2rem;
+  width: 8rem;
+  line-height: 1.4rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(94, 109, 71);
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.todos {
+  position: absolute;
+  left: 50rem;
+  top: 10rem;
+  width: 30rem;
+  height: 30rem;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  border-radius: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+.todos::-webkit-scrollbar {
+  display: none;
+}
+.todos h2 {
+  margin-left: 3rem;
+  position: sticky;
+  top: 0%;
+  z-index: 2;
+  font-size: 2rem;
+  margin-left: 0rem;
+  height: 4rem;
+  margin-top: -3rem;
+  padding-left: 2rem;
+  padding-top: 2rem;
+  margin-bottom: 3rem;
+  backdrop-filter: blur(30rem);
+  font-weight: 400;
+}
+.tasks {
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1), 0 8px 20px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  padding: 2rem;
+  height: 0.3rem;
+  border-radius: 5px;
+  border-bottom: 1px solid rgb(105, 105, 182);
+  margin: 0.3rem;
+  transition: 5s ease-in;
+}
+.tasks h3 {
+  color: #fff;
+  font-weight: 300;
+}
+#seller {
+  color: aqua;
+}
+#price {
+  color: rgb(92, 13, 125);
+}
+.tasks button {
+  width: 7rem;
+  border: none;
+  font-size: 10px;
+  height: 1.8rem;
+  margin-top: 0.2rem;
+  background-color: transparent;
+  outline: none;
+  color: white;
+  border-radius: 3px;
+}
+#delete {
+  background: rgb(212, 138, 138);
+  cursor: pointer;
+}
+#update {
+  background: green;
+  cursor: pointer;
 }

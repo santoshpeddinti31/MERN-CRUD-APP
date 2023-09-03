@@ -1,0 +1,35 @@
+.signuppage {
+  width: 20rem;
+  height: 20rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.signuppage input {
+  display: flex;
+  margin-top: 1rem;
+  width: 15rem;
+  outline: none;
+  border: none;
+  padding-inline-start: 6px;
+  border-radius: 5px;
+  color: #000;
+  background-color: transparent;
+  box-shadow: 0 4px 6px rgb(170, 64, 160, 0.2),
+    0 8px 20px 0 rgb(170, 64, 160, 0.2);
+  line-height: 1.5rem;
+}
+.signuppage input::placeholder {
+  color: #f9f9f9;
+}
+.signuppage button {
+  margin-top: 1.5rem;
+  width: 7rem;
+  background-color: rgb(196, 39, 188);
+  color: #fff;
+  border: none;
+  outline: none;
+  line-height: 1.4rem;
+  border-radius: 5px;
+}
